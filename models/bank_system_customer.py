@@ -7,7 +7,8 @@ class bankSystemCustomer(models.Model):
 
 
     name = fields.Char(required=True)
-    mobile=fields.Char()
-    Select_Banks=fields.Char()
-    account_no=fields.Char()
     address=fields.Char()
+    mobile=fields.Char()
+    Banks=fields.Char()
+    account_no=fields.Char()
+    acc_opened=fields.Date()

@@ -14,10 +14,20 @@ class Banking(models.Model):
     pan_card = fields.Char()
     occupation = fields.Char()
     father_name = fields.Char()
+    application_date=fields.Date()
     gender=fields.Selection(
         selection=[
             ("male", "Male"),
             ("female", "Female"),
             ("other", "Other"),
         ]
+    )
+    status=fields.Selection(
+        selection=[
+            ("application","Application"),
+            ("process","Process"),
+            ("validate","Validate"),
+            ("done","Done"),
+        ],
+        default="application"
     )

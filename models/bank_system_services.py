@@ -22,7 +22,8 @@ class BankSystemservices(models.Model):
     _name = "bank.system.services"
     _description = "Bank system services"
 
-    customer_name = fields.Char()
+    name=fields.Char()
+    # customer_name = fields.Char()
     email = fields.Char()
     mobile = fields.Char()
     address = fields.Char()

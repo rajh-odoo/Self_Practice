@@ -14,7 +14,7 @@
         <field name="name">Loan</field>
         <field name="res_model">bank.system.services</field>
         <field name="view_mode">tree,form</field>
-</record>
+</record> 
 <record id="bank_system_services_fixed_deposit_action" model="ir.actions.act_window">
         <field name="name">fixed Deposit</field>
         <field name="res_model">bank.system.services</field>

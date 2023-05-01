@@ -34,18 +34,32 @@
         <field name="model">bank.system</field>
         <field name="arch" type="xml">
             <form string="FORM ">
+                <header>
+                    <field name="status" widget="statusbar"></field>
+                </header>
                 <sheet>
+                    <h2> Registration Form </h2>
+                    <br></br>
                     <group>
 
                         <group>
                             <field name="customer_name" />
                         </group>
+                        <group>
+                            <field name="father_name" />
+                        </group>
+                        <group>
+                            <field name="occupation" />
+                        </group>
+                        <group>
+                            <field name="application_date" />
+                        </group>
                     </group>
                     <notebook>
                         <page string="discription">
                             <group>
-                                <field name="father_name" />
-                                <field name="occupation" />
+
+
                                 <field name="email" />
                                 <field name="mobile" />
                                 <field name="gender" />
