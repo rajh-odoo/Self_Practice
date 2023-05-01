@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem id="bank_menu_root" name="Banking">
+        <menuitem id="bank_system_menu" name="Application">
+            <menuitem id="bank_system_menu_action" action="bank_system_action" />
+        </menuitem>
+
+
+        <!-- ................................Customers............................. -->
+        <menuitem id="bank_menu_customer" name="Customer">
+            <menuitem id="bank_system_menu_customer_action" action="bank_system_customer_action"/>
+        </menuitem>
+
+        <!--.................................Services.................................-->
+         <menuitem id="bank_menu_services" name="Services">
+            <menuitem id="bank_system_menu_services_action" action="bank_system_services_action"/>
+            <menuitem id="bank_system_menu_services_credit_card_action" action="bank_system_services_credit_card_action"/>
+            <menuitem id="bank_system_menu_services_loan_action" action="bank_system_services_loan_action"/>
+            <menuitem id="bank_system_menu_services_fixed_deposit_action" action="bank_system_services_fixed_deposit_action"/>
+        </menuitem>
+    </menuitem>
+</odoo>

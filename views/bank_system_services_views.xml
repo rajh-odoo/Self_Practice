@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+<record id="bank_system_services_action" model="ir.actions.act_window">
+        <field name="name">Bank Services</field>
+        <field name="res_model">bank.system.services</field>
+        <field name="view_mode">tree,form</field>
+</record>
+<record id="bank_system_services_credit_card_action" model="ir.actions.act_window">
+        <field name="name">Credit card</field>
+        <field name="res_model">bank.system.services</field>
+        <field name="view_mode">tree,form</field>
+</record>
+<record id="bank_system_services_loan_action" model="ir.actions.act_window">
+        <field name="name">Loan</field>
+        <field name="res_model">bank.system.services</field>
+        <field name="view_mode">tree,form</field>
+</record>
+<record id="bank_system_services_fixed_deposit_action" model="ir.actions.act_window">
+        <field name="name">fixed Deposit</field>
+        <field name="res_model">bank.system.services</field>
+        <field name="view_mode">tree,form</field>
+</record>
+
+</odoo>

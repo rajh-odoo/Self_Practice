@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="bank_system_action" model="ir.actions.act_window">
+        <field name="name">Banks</field>
+        <field name="res_model">bank.system</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!--..............bank_List_View.................... -->
+    <record id="bank_system_view_tree" model="ir.ui.view">
+        <field name="name">bank.system.tree.view</field>
+        <field name="model">bank.system</field>
+        <field name="arch" type="xml">
+            <tree string="tree view">
+                <field name="customer_name"></field>
+                <field name="father_name" />
+                <field name="occupation" />
+                <field name="email"></field>
+                <field name="mobile" />
+                <field name="gender" />
+                <field name="adhar_card" />
+                <field name="pan_card" />
+                <field name="address"></field>
+                <field name="pincode"></field>
+
+
+            </tree>
+        </field>
+    </record>
+
+    <!---.................bank_form_view.................... -->
+    <record id="bank_system_view_form" model="ir.ui.view">
+        <field name="name">bank.system.view.form</field>
+        <field name="model">bank.system</field>
+        <field name="arch" type="xml">
+            <form string="FORM ">
+                <sheet>
+                    <group>
+
+                        <group>
+                            <field name="customer_name" />
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="discription">
+                            <group>
+                                <field name="father_name" />
+                                <field name="occupation" />
+                                <field name="email" />
+                                <field name="mobile" />
+                                <field name="gender" />
+                                <field name="adhar_card" />
+                                <field name="pan_card" />
+                                <field name="address" />
+                                <field name="pincode" />
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+
+    </record>
+
+
+    <!-- ....................bank_search_view................. -->
+    <record id="estate_system_view_search" model="ir.ui.view">
+        <field name="name">bank.system.search.view</field>
+        <field name="model">bank.system</field>
+        <field name="arch" type="xml">
+            <search string="bank_search">
+                <field name="customer_name" />
+                <field name="pincode" />
+
+                <separator />
+                <group string="Group By">
+                    <filter string="Pincode" name="pincode" context="{'group_by':'pincode'}" />
+                </group>
+            </search>
+
+        </field>
+    </record>
+
+</odoo>    

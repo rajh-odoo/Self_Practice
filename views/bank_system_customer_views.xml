@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+<record id="bank_system_customer_action" model="ir.actions.act_window">
+        <field name="name">Bank customer</field>
+        <field name="res_model">bank.system.customer</field>
+        <field name="view_mode">tree,form</field>
+</record>
+
+</odoo>
