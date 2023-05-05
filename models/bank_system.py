@@ -5,7 +5,7 @@ class Banking(models.Model):
     _name = "bank.system"
     _description = "Banking system"
 
-    customer_name = fields.Char()
+    customer_name = fields.Many2one("res.partner")
     email = fields.Char()
     mobile = fields.Char()
     address = fields.Char()

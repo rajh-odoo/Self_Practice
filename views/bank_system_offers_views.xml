@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+<record id="bank_system_offers_action" model="ir.actions.act_window">
+    <field name="name">Loan Offers</field>
+    <field name="res_model">bank.system.offers.loan</field>
+    <field name="view_mode">tree,form</field>
+</record>
+<record id="bank_system_view_form" model="ir.ui.view">
+        <field name="name">bank.system.view.form</field>
+        <field name="model">bank.system</field>
+        <field name="arch" type="xml">
+        <form string="FORM">
+        </form>
+        </field>
+</record>        
+</odoo>

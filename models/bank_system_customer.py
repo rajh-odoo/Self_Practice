@@ -11,4 +11,5 @@ class bankSystemCustomer(models.Model):
     mobile=fields.Char()
     Banks=fields.Char()
     account_no=fields.Char()
-    acc_opened=fields.Date()
+    adhar_card=fields.Char()
+    acc_opened=fields.Date()    

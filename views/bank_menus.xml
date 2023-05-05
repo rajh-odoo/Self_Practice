@@ -8,16 +8,24 @@
 
 
         <!-- ................................Customers............................. -->
-        <menuitem id="bank_menu_customer" name="Customer">
-            <menuitem id="bank_system_menu_customer_action" action="bank_system_customer_action"/>
-        </menuitem>
+        <!-- <menuitem id="bank_menu_customer" name="Customer">
+            <menuitem id="bank_system_menu_customer_action" action="bank_system_customer_action" />
+        </menuitem> -->
 
         <!--.................................Services.................................-->
-         <menuitem id="bank_menu_services" name="Services">
-            <menuitem id="bank_system_menu_services_action" action="bank_system_services_action"/>
-            <menuitem id="bank_system_menu_services_credit_card_action" action="bank_system_services_credit_card_action"/>
-            <menuitem id="bank_system_menu_services_loan_action" action="bank_system_services_loan_action"/>
-            <menuitem id="bank_system_menu_services_fixed_deposit_action" action="bank_system_services_fixed_deposit_action"/>
+        <menuitem id="bank_menu_services" name="Services">
+            <menuitem id="bank_system_menu_services_credit_card_action"
+                action="bank_system_services_credit_card_action" />
+            <menuitem id="bank_system_menu_services_loan_action"
+                action="bank_system_services_loan_action" />
+            <menuitem id="bank_system_menu_services_fixed_deposit_action"
+                action="bank_system_services_fixed_deposit_action" />
+        </menuitem>
+
+        <!-- .................................Offers.................................. -->
+        <menuitem id="bank_menu_offers" name="Offers">
+            <menuitem id="bank_system_menu_offers_action" action="bank_system_offers_action" />
+             <menuitem id="bank_system_menu_credit_offers_action" action="bank_system_offers_credit_action" />
         </menuitem>
     </menuitem>
 </odoo>
