@@ -15,6 +15,7 @@ class Banking(models.Model):
     occupation = fields.Char()
     father_name = fields.Char()
     application_date=fields.Date()
+    bank_offer_ids=fields.Many2many("bank.system.offers")
     gender=fields.Selection(
         selection=[
             ("male", "Male"),

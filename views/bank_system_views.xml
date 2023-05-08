@@ -13,15 +13,10 @@
         <field name="arch" type="xml">
             <tree string="tree view">
                 <field name="customer_name"></field>
-                <field name="father_name" />
                 <field name="occupation" />
-                <field name="email"></field>
                 <field name="mobile" />
-                <field name="gender" />
                 <field name="adhar_card" />
-                <field name="pan_card" />
-                <field name="address"></field>
-                <field name="pincode"></field>
+                <field name="pincode"/>
 
 
             </tree>
@@ -68,6 +63,9 @@
                                 <field name="address" />
                                 <field name="pincode" />
                             </group>
+                        </page>
+                        <page string="Offers">
+                            <field name="bank_offer_ids" />
                         </page>
                     </notebook>
                 </sheet>

@@ -1,5 +1,6 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 banking.access_bank_system,access_bank_system,banking.model_bank_system,base.group_user,1,1,1,1
-banking.access_bank_system_services,access_bank_system_services,banking.model_bank_system_services,base.group_user,1,1,1,1
-banking.access_bank_system_offers_credit,access_bank_system_offers_credit,banking.model_bank_system_offers_credit,base.group_user,1,1,1,1
-banking.access_bank_system_offers_loan,access_bank_system_offers_loan,banking.model_bank_system_offers_loan,base.group_user,1,1,1,1
+banking.access_bank_system_offers,access_bank_system_offers,banking.model_bank_system_offers,base.group_user,1,1,1,1
+banking.access_bank_system_customer,access_bank_system_customer,banking.model_bank_system_customer,base.group_user,1,1,1,1
+
+
