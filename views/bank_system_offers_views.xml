@@ -1,53 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <!-- <record id="bank_system_offers_action" model="ir.actions.act_window">
+    <record id="bank_system_offers_action" model="ir.actions.act_window">
         <field name="name">Offers</field>
         <field name="res_model">bank.system.offers</field>
         <field name="view_mode">tree,form</field>
-    </record> -->
+    </record>
 
     <record id="bank_system_offers_view_tree" model="ir.ui.view">
         <field name="name">bank.system.offers.view.tree</field>
         <field name="model">bank.system.offers</field>
         <field name="arch" type="xml">
-            <tree string="List">
-                <field name="status" />
+            <tree string="List" decoration-danger="status =='refused'" decoration-success="status =='accepted'">
                 <field name="amount" />
+                <field name="loan_period" />
                 <field name="total_amount" />
                 <field name="status" />
-                <button name="accepted" type="object" icon="fa-check" />
-                <button name ="refused" type="object" icon="fa-times" />
+                <button name="accepted" type="object" title="Accepted" icon="fa-check" attrs="{'invisible':[('status','in',['accepted','refused'])]}"/>
+                <button name ="refused" type="object" title="Refused" icon="fa-times" attrs="{'invisible':[('status', 'in',['accepted','refused'])]}"/>
             </tree>
-        </field>
-    </record>
-
-
-    <record id="bank_system_offers_views_form" model="ir.ui.view">
-        <field name="name">bank.system.offers.view.form</field>
-        <field name="model">bank.system.offers</field>
-        <field name="arch" type="xml">
-            <form string="form_view">
-                <group>
-                    <group>
-                        <field name="amount" />
-                    </group>
-                    <group>
-                        <field name="interest_rate" />
-                    </group>
-                    <group>
-                        <field name="discount" />
-                    </group>
-                    <group>
-                        <field name="loan_period" />
-
-                    </group>
-
-                    <group>
-                        
-                    </group>
-
-                </group>
-            </form>
         </field>
     </record>
 

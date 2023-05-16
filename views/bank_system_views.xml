@@ -30,7 +30,7 @@
         <field name="arch" type="xml">
             <form string="FORM ">
                 <header>
-                    <field name="status" widget="statusbar"></field>
+                      <field name="state" widget="statusbar"></field>
                 </header>
                 <sheet>
                     <h2> Registration Form </h2>
@@ -41,7 +41,7 @@
                             <field name="customer_name" />
                         </group>
                         <group>
-                            <field name="father_name" />
+                            <field name="best_offers" />
                         </group>
                         <group>
                             <field name="occupation" />
@@ -62,10 +62,12 @@
                                 <field name="pan_card" />
                                 <field name="address" />
                                 <field name="pincode" />
+                                <field name="state"/>
+                                
                             </group>
                         </page>
                         <page string="Offers">
-                            <field name="bank_offer_ids" />
+                            <field name="bank_offer_ids"  />
                         </page>
                     </notebook>
                 </sheet>

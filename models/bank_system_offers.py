@@ -1,12 +1,16 @@
 from odoo import fields, models, api
+from odoo.exceptions import UserError
 
 
 class BankSystemOffer(models.Model):
     _name = "bank.system.offers"
     _description = "Bank system offers"
+    
+    
 
     discount = fields.Integer(default=2,readonly=True)
     amount = fields.Float()
+    # price=fields.Float()
     status = fields.Selection(selection=[("accepted", "Accepted"), ("refused", "Refused")], copy=False)
     interest_rate = fields.Integer(default=10, readonly=True)
     loan_period = fields.Integer(string="Loan Period (in years)")
@@ -16,38 +20,30 @@ class BankSystemOffer(models.Model):
 
     @api.depends('interest_rate','loan_period','amount')
     def _compute_total_amount(self):
-        self.total_amount=self.amount+((self.amount*self.loan_period*(self.interest_rate-self.discount))/100)
-
-    @api.depends('status')
-    def accepted(self):
         for record in self:
-            for record in self.property_id.bank_offer_ids:
-                record.status='refused'
-            self.status='accepted'
+            record['total_amount']=record['amount']+((record['amount']*record['loan_period']*(record['interest_rate']-record['discount']))/100)
 
-
-    def refused(self):
-        for record in self:
-            record.status='refused'
-            
 
     def accepted(self):
         for record in self:
             for record in self.property_id.offer_ids:
                 record.status='refused'
             self.status = 'accepted'
-            self.property_id.selling_price = record.price
-            self.property_id.buyer_id = record.partner_id
-            self.property_id.state='offer_accepted'
-               
-
+            self.property_id.best_offers = record.amount
+            self.property_id.state='offer_accepted'        
 
 
     def refused(self):
-            self.status = "refused" 
-            self.property_id.state="offer_received"
-            self.property_id.selling_price = 0
-            self.property_id.buyer_id=""         
-            
+        for record in self:
+            record.status='refused'
+            self.property_id.state='offer_received'
+    
 
- 
+    @api.model
+    def create(self, vals):
+        temp = self.env['bank.system'].browse(vals['property_id'])
+        if temp.best_offers >= vals['amount']:
+            raise UserError("amount should be greater than best offer %.2f" %temp.best_offers)    
+        return super().create(vals)        
+               
+    

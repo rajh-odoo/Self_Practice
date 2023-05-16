@@ -12,8 +12,8 @@
     # data files always loaded at installation
     'data': [
         'security/ir.model.access.csv',
-        'views/bank_system_offers_views.xml',
         'views/bank_system_views.xml',
+        'views/bank_system_offers_views.xml',
         'views/bank_system_customer_views.xml',
         'views/bank_menus.xml',
     ],
