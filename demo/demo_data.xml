@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- offer type -->
+    <record id="home_loan" model="bank.system.offers.type">
+        <field name="name">Home Loan</field>
+    </record>
+    <record id="education_loan" model="bank.system.offers.type">
+        <field name="name">Education Loan</field>
+    </record>
+    <record id="business_loan" model="bank.system.offers.type">
+        <field name="name">Business Loan</field>
+    </record>
+
+    <!-- loan -->
+    <record id="home" model="bank.system.offers">
+        <field name="name">Home Loan</field>
+        <field name="status">accepted</field>
+        <field name="amount">1000000</field>
+        <field name="loan_period">2</field>
+    </record>
+
+    <record id="education" model="bank.system.offers">
+        <field name="name">Education Loan</field>
+        <!-- <field name="status">refused</field> -->
+        <field name="amount">400000</field>
+        <field name="loan_period">2</field>
+    </record>
+
+    <record id="business" model="bank.system.offers">
+        <field name="name">Business Loan</field>
+        <field name="status">accepted</field>
+        <field name="amount">50000000</field>
+        <field name="loan_period">2</field>
+    </record>
+
+</odoo>
