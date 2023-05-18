@@ -11,26 +11,159 @@
         <field name="name">Business Loan</field>
     </record>
 
-    <!-- loan -->
-    <record id="home" model="bank.system.offers">
+    <!-- Home Loan -->
+    <record id="home" model="bank.system">
         <field name="name">Home Loan</field>
-        <field name="status">accepted</field>
-        <field name="amount">1000000</field>
-        <field name="loan_period">2</field>
+        <field name="description">Loan for buying house</field>
+        <field name="expected_amount">100000</field>
+        <field name="mobile">7689654789</field>
+        <field name="adhar_card">666655554444</field>
+        <field name="pincode">111111</field>
+
     </record>
 
-    <record id="education" model="bank.system.offers">
-        <field name="name">Education Loan</field>
-        <!-- <field name="status">refused</field> -->
+    <!-- education loan -->
+    <record id="primary_education" model="bank.system">
+        <field name="name">Primary Education Loan</field>
+        <field name="state">cancel</field>
+        <field name="description">Loan for primary education purpose</field>
+        <field name="expected_amount">40000</field>
+        <field name="mobile">7689654789</field>
+        <field name="adhar_card">666677774444</field>
+        <field name="pincode">222222</field>
+
+    </record>
+
+    <record id="secondary_education" model="bank.system">
+        <field name="name">Secondary Education Loan</field>
+        <field name="expected_amount">200000</field>
+        <field name="description">Loan for secondary education</field>
+        <field name="mobile">7689654789</field>
+        <field name="adhar_card">666655556666</field>
+        <field name="pincode">333333</field>
+
+    </record>
+
+    <record id="higher_education" model="bank.system">
+        <field name="name">Higher Education Loan</field>
+        <field name="expected_amount">400000</field>
+        <field name="description">Loan for higher education</field>
+        <field name="mobile">7689654789</field>
+        <field name="adhar_card">666655558888</field>
+        <field name="pincode">555555</field>
+
+    </record>
+
+    <!-- business loan -->
+    <record id="small_business" model="bank.system">
+        <field name="name">Small Business Loan</field>
+        <field name="mobile">8889967589</field>
+        <field name="adhar_card" >2222666888</field>
+        <field name="pincode" >111005</field>
+        <field name="state">offer_accepted</field>
+        <field name="description">Loan for small business</field>
+        <field name="expected_amount">100000</field>
+        <field name="offer_ids"
+            eval="[
+            Command.clear(),
+            Command.create({
+                'offer_id': ref('base.res_partner_12'),
+                'amount':800000,
+                'loan_period':2,
+            }),
+            Command.create({
+                'offer_id': ref('base.res_partner_2'),
+                'amount':900000,
+                'loan_period':3,
+                
+            }),
+        ]" />
+        <!-- <field name="offer_ids"
+            eval="[
+            Command.clear(),
+            Command.create({
+                'offer_id': ref('base.res_partner_12'),
+                'amount':200000,
+                'loan_period':2,
+
+            }),
+            Command.create({
+                'offer_id': ref('base.res_partner_2'),
+                'amount':300000,
+                'loan_period':3,
+            }),
+        ]" /> -->
+    </record>
+    <record id="medium_business" model="bank.system">
+        <field name="name">Medium Business Loan</field>
+        <field name="state">offer_accepted</field>
+        <field name="description">Loan for small business</field>
+        <field name="expected_amount">300000</field>
+        <field name="mobile">7689654789</field>
+        <field name="adhar_card">666655551122</field>
+        <field name="pincode">100000</field>
+
+    </record>
+    <record id="big_business" model="bank.system">
+        <field name="name">Large Business Loan</field>
+        <field name="expected_amount">1000000</field>
+        <field name="description">Loan for large business</field>
+        <field name="mobile">7689654789</field>
+        <field name="adhar_card">666633334444</field>
+        <field name="pincode">222111</field>
+
+    </record>
+
+    <!-- home lone offer -->
+    <record id="offer_home_1" model="bank.system.offers">
+        <field name="amount">100000</field>
+        <field name="partner_id" ref="base.res_partner_12" />
+        <field name="offer_id" ref="home" />
+        <field name="loan_period">2</field>
+
+    </record>
+
+    <record id="offer_home_2" model="bank.system.offers">
+        <field name="amount">500000</field>
+        <field name="partner_id" ref="base.res_partner_2" />
+        <field name="offer_id" ref="home" />
+        <field name="loan_period">3</field>
+
+    </record>
+
+    <!-- education loan offer -->
+    <record id="offer_primary_education" model="bank.system.offers">
+        <field name="amount">100000</field>
+        <field name="partner_id" ref="base.res_partner_12" />
+        <field name="offer_id" ref="primary_education" />
+        <field name="loan_period">2</field>
+    </record>
+    <record id="offer_secondary_education" model="bank.system.offers">
+        <field name="amount">200000</field>
+        <field name="partner_id" ref="base.res_partner_2" />
+        <field name="offer_id" ref="secondary_education" />
+        <field name="loan_period">3</field>
+    </record>
+    <record id="offer_higher_education" model="bank.system.offers">
         <field name="amount">400000</field>
-        <field name="loan_period">2</field>
+        <field name="partner_id" ref="base.res_partner_2" />
+        <field name="offer_id" ref="higher_education" />
+        <field name="loan_period">4</field>
     </record>
 
-    <record id="business" model="bank.system.offers">
-        <field name="name">Business Loan</field>
-        <field name="status">accepted</field>
-        <field name="amount">50000000</field>
-        <field name="loan_period">2</field>
+    <!-- business loan offer -->
+    <record id="offer_medium_business" model="bank.system.offers">
+        <field name="amount">300000</field>
+        <field name="partner_id" ref="base.res_partner_12" />
+        <field name="offer_id" ref="medium_business" />
+        <field name="loan_period">3</field>
     </record>
+    <record id="offer_big_business" model="bank.system.offers">
+        <field name="amount">100000</field>
+        <field name="partner_id" ref="base.res_partner_2" />
+        <field name="offer_id" ref="big_business" />
+        <field name="loan_period">5</field>
+    </record>
+
 
 </odoo>

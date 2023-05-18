@@ -6,9 +6,11 @@ class Banking(models.Model):
     _name = "bank.system"
     _description = "Banking system"
 
-    name=fields.Char()
-    customer_name = fields.Many2one("res.partner")
+    name=fields.Char("name", required=True)
+    amount = fields.Float()
+    # customer_name = fields.Many2one("res.partner")
     bank_offer_ids=fields.One2many("bank.system.offers","offer_id")
+    expected_amount = fields.Float(required=True)
     email = fields.Char()
     mobile = fields.Char()
     address = fields.Char()
@@ -16,6 +18,7 @@ class Banking(models.Model):
     adhar_card = fields.Char()
     pan_card = fields.Char()
     occupation = fields.Char()
+    description=fields.Char()
     father_name = fields.Char()
     application_date=fields.Date()
     best_offers = fields.Float(compute="_best_offer", default=0)

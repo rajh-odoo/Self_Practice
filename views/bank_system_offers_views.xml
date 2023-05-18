@@ -11,10 +11,12 @@
         <field name="model">bank.system.offers</field>
         <field name="arch" type="xml">
             <tree string="List" decoration-danger="status =='refused'" decoration-success="status =='accepted'">
+                <field name="partner_id"/>
                 <field name="amount" />
-                <field name="loan_period" />
+                <field name="loan_period" required="True"/>
                 <field name="total_amount" />
-                <field name="status" />
+                <!-- <field name="offer_id"/> -->
+                <field name="status" invisible="1"/>
                 <button name="accepted" type="object" title="Accepted" icon="fa-check" attrs="{'invisible':[('status','in',['accepted','refused'])]}"/>
                 <button name ="refused" type="object" title="Refused" icon="fa-times" attrs="{'invisible':[('status', 'in',['accepted','refused'])]}"/>
             </tree>

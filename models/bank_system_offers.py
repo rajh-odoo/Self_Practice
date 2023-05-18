@@ -7,13 +7,14 @@ class BankSystemOffer(models.Model):
     _description = "Bank system offers"
     
     
-    name=fields.Char()
-    amount = fields.Float()
+    # name=fields.Char()
     discount = fields.Integer(default=2,readonly=True)
+    amount=fields.Integer()
     status = fields.Selection(selection=[("accepted", "Accepted"), ("refused", "Refused")], copy=False)
     interest_rate = fields.Integer(default=10, readonly=True)
     loan_period = fields.Integer(string="Loan Period (in years)")
     total_amount=fields.Integer(compute='_compute_total_amount')
+    partner_id=fields.Many2one('res.partner')
     offer_id=fields.Many2one('bank.system')
 
 
@@ -38,11 +39,12 @@ class BankSystemOffer(models.Model):
             self.offer_id.state='offer_received'
     
 
-    # @api.model
-    # def create(self, vals):
-    #     temp = self.env['bank.system'].browse(vals['offer_ids'])
-    #     if temp.best_offers >= vals['amount']:
-    #         raise UserError("amount should be greater than best offer %.2f" %temp.best_offers)    
-    #     return super().create(vals)        
+    @api.model
+    def create(self, vals):
+        temp = self.env['bank.system'].browse(vals['offer_id'])
+        temp.state="offer_received"
+        if temp.best_offers >= vals['amount']:
+            raise UserError("offer amount should be greater than best offer %.2f" %temp.best_offers)    
+        return super().create(vals)     
                
     
