@@ -5,6 +5,7 @@ from odoo.exceptions import UserError
 class BankSystemOffer(models.Model):
     _name = "bank.system.offers"
     _description = "Bank system offers"
+    _sql_constraints=[('check_offer_amount','CHECK(amount>=0)','The price must be positive')]
     
     
     # name=fields.Char()
@@ -13,15 +14,17 @@ class BankSystemOffer(models.Model):
     status = fields.Selection(selection=[("accepted", "Accepted"), ("refused", "Refused")], copy=False)
     interest_rate = fields.Integer(default=10, readonly=True)
     loan_period = fields.Integer(string="Loan Period (in years)")
-    total_amount=fields.Integer(compute='_compute_total_amount')
+    total_amount=fields.Float(compute='_compute_total_amount', store=True)
     partner_id=fields.Many2one('res.partner')
     offer_id=fields.Many2one('bank.system')
 
 
     @api.depends('interest_rate','loan_period','amount')
     def _compute_total_amount(self):
+
         for record in self:
             record['total_amount']=record['amount']+((record['amount']*record['loan_period']*(record['interest_rate']-record['discount']))/100)
+            # print("Total amount is", record['total_amount'])
 
 
     def accepted(self):

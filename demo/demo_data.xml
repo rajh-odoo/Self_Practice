@@ -57,7 +57,7 @@
     <!-- business loan -->
     <record id="small_business" model="bank.system">
         <field name="name">Small Business Loan</field>
-        <field name="mobile">8889967589</field>
+        <field name="mobile">8709923479</field>
         <field name="adhar_card" >2222666888</field>
         <field name="pincode" >111005</field>
         <field name="state">offer_accepted</field>
@@ -68,31 +68,16 @@
             Command.clear(),
             Command.create({
                 'offer_id': ref('base.res_partner_12'),
-                'amount':800000,
+                'amount':100000,
                 'loan_period':2,
             }),
             Command.create({
                 'offer_id': ref('base.res_partner_2'),
-                'amount':900000,
+                'amount':150000,
                 'loan_period':3,
                 
             }),
         ]" />
-        <!-- <field name="offer_ids"
-            eval="[
-            Command.clear(),
-            Command.create({
-                'offer_id': ref('base.res_partner_12'),
-                'amount':200000,
-                'loan_period':2,
-
-            }),
-            Command.create({
-                'offer_id': ref('base.res_partner_2'),
-                'amount':300000,
-                'loan_period':3,
-            }),
-        ]" /> -->
     </record>
     <record id="medium_business" model="bank.system">
         <field name="name">Medium Business Loan</field>
@@ -164,6 +149,5 @@
         <field name="offer_id" ref="big_business" />
         <field name="loan_period">5</field>
     </record>
-
 
 </odoo>

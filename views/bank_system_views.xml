@@ -15,7 +15,7 @@
                 <field name="name"></field>
                 <field name="mobile" />
                 <field name="adhar_card" />
-                <field name="pincode"/>
+                <field name="pincode" />
 
 
             </tree>
@@ -29,15 +29,17 @@
         <field name="arch" type="xml">
             <form string="FORM ">
                 <header>
-                      <field name="state" widget="statusbar"></field>
+                    <field name="state" widget="statusbar"></field>
+                    <button name="done_btn" string="Done" type="object" states="new,offer_received" />
+                    <button name="done_btn" string="Done" type="object" states="offer_accepted"
+                        class="oe_highlight" />
+                    <button name="cancel_btn" string="Cancel" type="object" widget="badge"
+                        states="new,offer_received,offer_accepted" />
                 </header>
                 <sheet>
-                    <h2> Registration Form </h2>
-                    <br></br>
                     <group>
-
                         <group>
-                           <field name="name" string="Title" />
+                            <field name="name" string="Title" />
                         </group>
                         <group>
                             <field name="best_offers" />
@@ -58,20 +60,25 @@
                                 <field name="mobile" />
                                 <field name="occupation" />
                                 <field name="gender" />
-                                 <field name="occupation" />
+                                <field name="occupation" />
                                 <field name="adhar_card" />
                                 <field name="pan_card" />
                                 <field name="address" />
                                 <field name="pincode" />
-                                <field name="state"/>
-                                
+                                <field name="state" />
+
                             </group>
                         </page>
                         <page string="Offers">
-                            <field name="bank_offer_ids"  />
+                            <field name="bank_offer_ids" />
                         </page>
                     </notebook>
                 </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" />
+                    <field name="message_ids" widget="mail_thread" />
+                    <field name="activity_ids" widget="mail_thread" />
+                </div>
             </form>
         </field>
 
@@ -85,7 +92,7 @@
         <field name="arch" type="xml">
             <search string="bank_search">
                 <field name="pincode" />
-                <field name="adhar_card"/>
+                <field name="adhar_card" />
 
                 <separator />
                 <group string="Group By">

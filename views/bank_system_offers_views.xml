@@ -13,7 +13,7 @@
             <tree string="List" decoration-danger="status =='refused'" decoration-success="status =='accepted'">
                 <field name="partner_id"/>
                 <field name="amount" />
-                <field name="loan_period" required="True"/>
+                <field name="loan_period" />
                 <field name="total_amount" />
                 <!-- <field name="offer_id"/> -->
                 <field name="status" invisible="1"/>

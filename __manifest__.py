@@ -1,7 +1,7 @@
 {
     'name': "bank",
     'version': '1.0',
-    'depends': ['base'],
+    'depends': ['base','mail'],
     'author': "Ravi Roushan",
     'category': 'Category',
     
@@ -15,7 +15,7 @@
         'views/bank_system_views.xml',
         'views/bank_system_offers_views.xml',
         'views/bank_system_offers_type_views.xml',
-        'views/bank_system_customer_views.xml',
+        # 'views/bank_system_customer_views.xml',
         'demo/demo_data.xml',
         'views/bank_menus.xml',
     ],

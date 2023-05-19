@@ -8,9 +8,9 @@
 
 
         <!-- ................................Customers............................. -->
-        <menuitem id="bank_menu_customer" name="Customer">
+        <!-- <menuitem id="bank_menu_customer" name="Customer">
             <menuitem id="bank_system_menu_customer_action" action="bank_system_customer_action" />
-        </menuitem>
+        </menuitem> -->
 
 
         <!-- .................................Offers.................................. -->
