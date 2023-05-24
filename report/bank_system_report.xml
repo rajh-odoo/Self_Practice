@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+<record id="bank_offer_report" model="ir.actions.report">
+    <field name="name">bank Offer Report</field>
+    <field name="model">bank.system</field>
+    <field name="report_type">qweb-pdf</field>
+    <field name="report_name">banking.report_bank_offers</field>
+    <field name="report_file">banking.report_bank_offers</field>
+    <field name="binding_model_id" ref="model_bank_system"></field>
+    <field name="binding_type">report</field>
+</record>
+</odoo>
+
+
+
+ 

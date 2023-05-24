@@ -3,7 +3,7 @@
     <record id="bank_system_action" model="ir.actions.act_window">
         <field name="name">Banks</field>
         <field name="res_model">bank.system</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,form,kanban</field>
     </record>
 
     <!--..............bank_List_View.................... -->
@@ -100,6 +100,31 @@
                 </group>
             </search>
 
+        </field>
+    </record>
+
+
+     <record id="estate_system_view_kanban" model="ir.ui.view">
+        <field name="name">bank.system.kanban.view</field>
+        <field name="model">bank.system</field>
+        <field name="arch" type="xml">
+            <kanban>
+            <field name="state"/>
+                 <templates>
+                    <t t-name = "kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <field name="name"/>
+                            <!-- <field name= "offer_ids"/> -->
+                            <label for ="expected_amount">Expected Amount:</label>
+                            <field name = "expected_amount"/>
+                            <!-- <div t-if="record.state.raw_value == 'offer_received'">
+                                    <label for ="best_offers">Best offer:</label>
+                                    <field name = "best_offers"/>       
+                            </div>                         -->
+                        </div>                         
+                    </t>
+                </templates>
+            </kanban>
         </field>
     </record>
 

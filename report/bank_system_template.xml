@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="report_bank_offers">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="bank">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <div>
+                            <strong>name: </strong>
+                            <span t-field="bank.name" />
+                        </div>
+                        <div>
+                            <strong>best offers: </strong>
+                            <span t-field="bank.best_offers" />
+                        </div>
+                        <div>
+                            <strong>Expected Amount: </strong>
+                            <span t-field="bank.expected_amount" />
+                        </div>
+                        <div>
+                            <strong>State: </strong>
+                            <span t-field="bank.state" />
+                        </div>
+
+                        <div>
+                            <t t-call="banking.report_offers_table" />
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <template id="report_offers_table">
+        <t t-if="bank.offer_ids">
+            <table class="table">
+                <thead>
+                    <tr>
+                    
+                        <th>partner_id</th>
+                        <th>amount</th>
+                        <th>total_amount</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <t t-set="offers" t-value="bank.mapped('offer_ids')" />
+                    <tr t-foreach="offers" t-as="offer">
+                        <td>
+                            <span t-field="offer.partner_id" />
+                        </td>
+                        <td>
+                            <span t-field="offer.amount" />
+                        </td>
+                        <td>
+                            <span t-field="offer.total_amount" />
+                        </td>
+                        <td>
+                            <span t-field="offer.status" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </t>
+    </template>
+</odoo>

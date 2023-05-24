@@ -18,6 +18,10 @@
         # 'views/bank_system_customer_views.xml',
         'demo/demo_data.xml',
         'views/bank_menus.xml',
+
+        'report/bank_system_template.xml',
+        'report/bank_system_report.xml',
+        'report/bank_account_template.xml',
     ],
     # data files containing optionally loaded demonstration data
     'demo': [
